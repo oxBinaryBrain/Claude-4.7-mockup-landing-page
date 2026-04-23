@@ -39,11 +39,8 @@ export default function BlurText({ text, className = '', delay = 0 }: BlurTextPr
           initial={{ filter: 'blur(10px)', opacity: 0, y: 50 }}
           animate={
             isVisible
-              ? [
-                  { filter: 'blur(5px)', opacity: 0.5, y: -5 },
-                  { filter: 'blur(0px)', opacity: 1, y: 0 },
-                ]
-              : {}
+              ? { filter: ['blur(10px)', 'blur(5px)', 'blur(0px)'], opacity: [0, 0.5, 1], y: [50, -5, 0] }
+              : { filter: 'blur(10px)', opacity: 0, y: 50 }
           }
           transition={{
             duration: 0.7,
